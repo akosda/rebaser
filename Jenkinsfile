@@ -9,5 +9,5 @@ stage('commit') {
 def cleanCheckout() {
   deleteDir()
   checkout scm
-  sh 'git rebase origin/master'
+  sh 'git rebase --onto origin/master~1 origin/master'
 }
