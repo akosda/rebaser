@@ -10,7 +10,7 @@ def cleanCheckout() {
   deleteDir()
   checkout scm
   step ([$class: 'CopyArtifact',
-          projectName: 'master-archive-commit-id']);
+          projectName: 'rebaser/master']);
   sh 'git rebase --onto origin/master~1 origin/master'
   sh 'ls -la'
 }
