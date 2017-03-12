@@ -11,6 +11,6 @@ def cleanCheckout() {
   checkout scm
   step ([$class: 'CopyArtifact',
           projectName: 'rebaser/master']);
-  sh 'git rebase --onto origin/master~1 origin/master'
   sh 'ls -la'
+  sh 'git rebase --onto `cat commit-id.txt` origin/master'
 }
